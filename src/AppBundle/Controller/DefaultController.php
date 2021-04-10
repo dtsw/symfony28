@@ -25,7 +25,7 @@ class DefaultController extends Controller
      */
     public function helloAction($name)
     {
-        return new Response("Hello " . $name);
+        return new Response( "Hello " . ucfirst($name) );
     }
     
 }
