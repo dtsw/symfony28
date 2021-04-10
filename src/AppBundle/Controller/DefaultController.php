@@ -21,11 +21,11 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/sayHelloTo/{name}", name="sayhello")
+     * @Route("/sayHelloTo", name="sayhello")
      */
-    public function helloAction($name)
+    public function helloAction(Request $request)
     {
-        return new Response("Hello " . $name);
+        return new Response("Hello");
     }
     
 }
