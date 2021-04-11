@@ -43,8 +43,10 @@ class DefaultController extends Controller
             header('Pragma: public');
             header('Content-Length: ' . filesize($file));
             readfile($file);
-        exit;
-    }
+            exit;
+        } else {
+            return new Response("asset not found");
+        }
 }
     
 }
