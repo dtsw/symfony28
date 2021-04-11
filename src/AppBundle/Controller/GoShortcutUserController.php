@@ -4,17 +4,21 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\GoShortcutUser;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Goshortcutuser controller.
  *
+ * @Route("goshortcutuser")
  */
 class GoShortcutUserController extends Controller
 {
     /**
      * Lists all goShortcutUser entities.
      *
+     * @Route("/", name="goshortcutuser_index")
+     * @Method("GET")
      */
     public function indexAction()
     {
@@ -30,6 +34,8 @@ class GoShortcutUserController extends Controller
     /**
      * Creates a new goShortcutUser entity.
      *
+     * @Route("/new", name="goshortcutuser_new")
+     * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
@@ -54,6 +60,8 @@ class GoShortcutUserController extends Controller
     /**
      * Finds and displays a goShortcutUser entity.
      *
+     * @Route("/{id}", name="goshortcutuser_show")
+     * @Method("GET")
      */
     public function showAction(GoShortcutUser $goShortcutUser)
     {
@@ -68,6 +76,8 @@ class GoShortcutUserController extends Controller
     /**
      * Displays a form to edit an existing goShortcutUser entity.
      *
+     * @Route("/{id}/edit", name="goshortcutuser_edit")
+     * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, GoShortcutUser $goShortcutUser)
     {
@@ -91,6 +101,8 @@ class GoShortcutUserController extends Controller
     /**
      * Deletes a goShortcutUser entity.
      *
+     * @Route("/{id}", name="goshortcutuser_delete")
+     * @Method("DELETE")
      */
     public function deleteAction(Request $request, GoShortcutUser $goShortcutUser)
     {

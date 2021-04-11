@@ -4,17 +4,21 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\GoShortcut;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Goshortcut controller.
  *
+ * @Route("goshortcut")
  */
 class GoShortcutController extends Controller
 {
     /**
      * Lists all goShortcut entities.
      *
+     * @Route("/", name="goshortcut_index")
+     * @Method("GET")
      */
     public function indexAction()
     {
@@ -30,6 +34,8 @@ class GoShortcutController extends Controller
     /**
      * Creates a new goShortcut entity.
      *
+     * @Route("/new", name="goshortcut_new")
+     * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
@@ -54,6 +60,8 @@ class GoShortcutController extends Controller
     /**
      * Finds and displays a goShortcut entity.
      *
+     * @Route("/{id}", name="goshortcut_show")
+     * @Method("GET")
      */
     public function showAction(GoShortcut $goShortcut)
     {
@@ -68,6 +76,8 @@ class GoShortcutController extends Controller
     /**
      * Displays a form to edit an existing goShortcut entity.
      *
+     * @Route("/{id}/edit", name="goshortcut_edit")
+     * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, GoShortcut $goShortcut)
     {
@@ -91,6 +101,8 @@ class GoShortcutController extends Controller
     /**
      * Deletes a goShortcut entity.
      *
+     * @Route("/{id}", name="goshortcut_delete")
+     * @Method("DELETE")
      */
     public function deleteAction(Request $request, GoShortcut $goShortcut)
     {
