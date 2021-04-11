@@ -11,6 +11,16 @@ web_profiler:
     toolbar: true
     intercept_redirects: false
 
+doctrine:
+    dbal:
+        driver:   pdo_sqlite
+        path:     '%kernel.root_dir%/sqlite.db'
+        charset:  UTF8
+        host:     '%database_host%'
+        dbname:   '%database_name%'
+        user:     '%database_user%'
+        password: '%database_password%'
+
 monolog:
     handlers:
         main:
