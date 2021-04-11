@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Goshortcuts list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Shortcut</th>
+                <th>Target</th>
+                <th>Description</th>
+                <th>Createdate</th>
+                <th>Status</th>
+                <th>Createuserid</th>
+                <th>Comments</th>
+                <th>Accesscounter</th>
+                <th>Lastaccessed</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for goShortcut in goShortcuts %}
+            <tr>
+                <td><a href="{{ path('goshortcut_show', { 'id': goShortcut.id }) }}">{{ goShortcut.id }}</a></td>
+                <td>{{ goShortcut.shortcut }}</td>
+                <td>{{ goShortcut.target }}</td>
+                <td>{{ goShortcut.description }}</td>
+                <td>{% if goShortcut.createDate %}{{ goShortcut.createDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if goShortcut.status %}Yes{% else %}No{% endif %}</td>
+                <td>{{ goShortcut.createUserId }}</td>
+                <td>{{ goShortcut.comments }}</td>
+                <td>{{ goShortcut.accessCounter }}</td>
+                <td>{% if goShortcut.lastAccessed %}{{ goShortcut.lastAccessed|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('goshortcut_show', { 'id': goShortcut.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('goshortcut_edit', { 'id': goShortcut.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('goshortcut_new') }}">Create a new goShortcut</a>
+        </li>
+    </ul>
+{% endblock %}

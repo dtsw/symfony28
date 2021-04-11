@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Goshortcutusers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Userid</th>
+                <th>Status</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for goShortcutUser in goShortcutUsers %}
+            <tr>
+                <td><a href="{{ path('goshortcutuser_show', { 'id': goShortcutUser.id }) }}">{{ goShortcutUser.id }}</a></td>
+                <td>{{ goShortcutUser.userid }}</td>
+                <td>{% if goShortcutUser.status %}Yes{% else %}No{% endif %}</td>
+                <td>{{ goShortcutUser.firstname }}</td>
+                <td>{{ goShortcutUser.lastname }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('goshortcutuser_show', { 'id': goShortcutUser.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('goshortcutuser_edit', { 'id': goShortcutUser.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('goshortcutuser_new') }}">Create a new goShortcutUser</a>
+        </li>
+    </ul>
+{% endblock %}

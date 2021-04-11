@@ -1,0 +1,4 @@
+app_goshortcutuser:
+    resource: "@AppBundle/Resources/config/routing/goshortcutuser.php"
+    prefix:   /goshortcutuser
+
