@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * GoShortcut
  *
  * @ORM\Table(name="go_shortcut")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\GoShortcutRepository")
+ * @ORM\Entity()
  */
 class GoShortcut
 {
