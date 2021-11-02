@@ -31,7 +31,7 @@ class DefaultController extends Controller
     /**
      * @Route("/sayByeTo/{name}", name="saybye")
      */
-    public function helloAction($name)
+    public function byeAction($name)
     {
         $translated = $this->get('translator')->trans('symfony.is.great');
         return new Response( $translated . " " . ucfirst($name) );
