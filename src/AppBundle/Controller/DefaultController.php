@@ -29,7 +29,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/sayByeTo/{name}", name="saybye")
+     * @Route("/sayByeTo/{name}/{_locale}", name="saybye", defaults={"_locale" = "en"}, requirements={"_locale" : "de|fr|it|en" })
      */
     public function byeAction($name)
     {
